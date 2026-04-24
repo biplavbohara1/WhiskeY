@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Looma - Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:italic,wght@700&display=swap');
+    
+    body { font-family: 'Inter', sans-serif; }
+    .serif { font-family: 'Playfair Display', serif; }
+    
+    .library-side {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1)), url('download.jpg');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .wave-divider {
+      position: absolute;
+      top: 0;
+      right: -1px;
+      height: 100%;
+      width: 80px;
+      fill: #ffffff; 
+      z-index: 20;
+    }
+
+    .quote-fade {
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 min-h-screen flex items-center justify-center p-0 md:p-6">
+  
+  <div class="flex flex-col md:flex-row bg-white shadow-2xl w-full max-w-6xl md:rounded-[2rem] overflow-hidden min-h-screen md:min-h-[800px] border border-slate-200">
+    
+    <div class="hidden md:flex md:w-1/2 library-side relative p-12 flex-col justify-between text-white">
+      <svg class="wave-divider" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <path d="M100 0 Q 0 25 100 50 Q 0 75 100 100 L 100 0 Z"></path>
+      </svg>
+
+      <div class="relative z-10 flex items-center gap-3">
+        <img src="Picsart_26-04-24_17-17-55-589.jpg.jpeg" alt="Looma Logo" class="w-10 h-10 object-contain rounded-lg shadow-lg">
+        <span class="text-2xl font-bold tracking-tight text-white drop-shadow-md">Looma</span>
+      </div>
+
+      <div class="relative z-10 mb-8">
+        <p id="quote" class="serif text-3xl leading-relaxed italic quote-fade text-white drop-shadow-lg">
+          "The beautiful thing about learning is that nobody can take it away from you."
+        </p>
+        <div class="h-1 w-12 bg-blue-500 mt-6"></div>
+      </div>
+    </div>
+
+    <div class="w-full md:w-1/2 p-8 md:p-16 flex flex-col justify-between bg-white relative z-30">
+      
+      <div class="flex flex-col">
+        <div class="mb-10">
+          <h1 class="text-4xl font-bold text-slate-900 tracking-tight">Welcome Back</h1>
+          <p class="text-slate-500 mt-3 text-lg">Enter your details to access your library.</p>
+        </div>
+
+        <button id="googleBtn" class="w-full flex items-center justify-center gap-3 border border-slate-200 py-4 rounded-2xl hover:bg-slate-50 transition-all active:scale-[0.98] mb-8 text-slate-700">
+          <img src="https://cdn-icons-png.flaticon.com/512/300/300221.png" class="w-5" alt="Google">
+          <span class="font-semibold">Continue with Google</span>
+        </button>
+
+        <div class="relative mb-8">
+          <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-slate-100"></div></div>
+          <div class="relative text-center">
+            <span class="bg-white px-4 text-xs font-bold text-slate-400 uppercase tracking-[0.2em]">secure login</span>
+          </div>
+        </div>
+
+        <form id="loginForm" class="space-y-6">
+          <div class="space-y-2">
+            <label class="text-sm font-bold text-slate-700 ml-1">Email Address</label>
+            <input type="email" id="email" placeholder="e.g., alex@comp-sci.edu" required
+                   class="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white text-slate-900 placeholder-slate-400 transition-all">
+          </div>
+          
+          <div class="space-y-2">
+            <label class="text-sm font-bold text-slate-700 ml-1">Password</label>
+            <div class="relative">
+              <input type="password" id="password" placeholder="••••••••" required
+                     class="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white text-slate-900 placeholder-slate-400 transition-all pr-12">
+              <button type="button" id="togglePassword" class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 focus:outline-none">
+                <i class="fa-solid fa-eye" id="eyeIcon"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="flex items-center ml-1">
+            <input type="checkbox" id="rememberMe" class="w-4 h-4 rounded border-slate-300 bg-white text-blue-600 focus:ring-blue-500 transition-all cursor-pointer">
+            <label for="rememberMe" class="ml-2 text-sm font-medium text-slate-500 cursor-pointer hover:text-slate-700">Remember me</label>
+          </div>
+
+          <button type="submit" 
+                  class="w-full bg-slate-900 hover:bg-black text-white font-bold py-4 rounded-2xl transition-all shadow-xl shadow-slate-200 active:scale-[0.98]">
+            Sign In
+          </button>
+        </form>
+
+        <p class="text-center text-slate-500 mt-8 font-medium">
+          New here? <a href="signup.html" class="text-blue-600 hover:underline">Create an account</a>
+        </p>
+      </div>
+
+      <div class="mt-12 pt-8 border-t border-slate-100 flex justify-between items-center text-slate-400 text-xs">
+        <div class="flex items-center gap-2">
+            <span class="font-bold tracking-widest uppercase text-slate-500">Looma Library</span>
+        </div>
+        <span>&copy; 2026</span>
+      </div>
+    </div>
+  </div>
+
+<script type="module">
+    const togglePassword = document.querySelector('#togglePassword');
+    const passwordInput = document.querySelector('#password');
+    const eyeIcon = document.querySelector('#eyeIcon');
+
+    togglePassword.addEventListener('click', function () {
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+        eyeIcon.classList.toggle('fa-eye');
+        eyeIcon.classList.toggle('fa-eye-slash');
+    });
+
+    const quotes = [
+      "\"The beautiful thing about learning is that nobody can take it away from you.\"",
+      "\"Success is the sum of small efforts, repeated day in and day out.\"",
+      "\"Knowledge is power. Information is liberating.\"",
+      "\"Focus on being productive instead of busy.\""
+    ];
+    document.getElementById('quote').innerText = quotes[Math.floor(Math.random() * quotes.length)];
+
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, setPersistence, browserLocalPersistence, browserSessionPersistence } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyB1kgpQqK10rXYvmJ541OM8MkTRsvrjHeI",
+        authDomain: "notenest-7c6a4.firebaseapp.com",
+        projectId: "notenest-7c6a4",
+        storageBucket: "notenest-7c6a4.firebasestorage.app",
+        messagingSenderId: "298237437825",
+        appId: "1:298237437825:web:7093edfd299f3465daaa80"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
+    onAuthStateChanged(auth, (user) => {
+        if (user) window.location.href = 'page.html';
+    });
+
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const email = document.getElementById('email').value;
+        const passVal = document.getElementById('password').value;
+        const rememberMe = document.getElementById('rememberMe').checked;
+
+        try {
+            const persistence = rememberMe ? browserLocalPersistence : browserSessionPersistence;
+            await setPersistence(auth, persistence);
+            await signInWithEmailAndPassword(auth, email, passVal);
+            window.location.href = 'page.html';
+        } catch (error) {
+            alert("Login failed: " + error.message);
+        }
+    });
+
+    document.getElementById('googleBtn').addEventListener('click', async () => {
+        try {
+            await setPersistence(auth, browserLocalPersistence);
+            await signInWithPopup(auth, provider);
+            window.location.href = 'page.html';
+        } catch (error) {
+            alert("Google login failed: " + error.message);
+        }
+    });
+</script>
+</body>
+</html>
